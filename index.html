@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slovnyk</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2 class="translated__title">Конвертер в церковнослов'янський шрифт</h2>
+        <!-- <p class="translated"></p> -->
+        <!-- <ul class="translated__list"></ul> -->
+        <div class="translated_text">
+            <div class="text__rus">
+                <p class="input__title">Введіть текст</p>
+                <textarea class="input__text" name="text" rows="10" placeholder="Взбра́нной от все́х родо́в Засту́пнице ро́да христиа́нскаго"></textarea>
+                <button class="convert__btn">Конвертувати</button>
+            </div>
+            
+            <div class="text__cs">
+                <textarea class="result__text" name="text" rows="10" readonly></textarea>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="script-name.js"></script>
+    
+</body>
+</html>
