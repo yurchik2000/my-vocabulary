@@ -20,7 +20,7 @@ function convertText() {
 
 let vocabulary = [];
 
-const punctuation = [',', ':', '.',';','!','?',')','('];
+const punctuation = [',', ':', '.',';','!','?',')','(','«','»'];
 
 function convertTOArray(text) {
     const textTemp = text.split(' ');    
@@ -125,7 +125,7 @@ try {
         }
         console.log(3, vocabulary);
         exception(vocabulary);
-        // console.log(sortByRus(vocabulary));
+        console.log(sortByRus(vocabulary));
         // const translateText2 = 'Взбра́нной от все́х родо́в Засту́пнице ро́да христиа́нскаго, покро́вом Своея́ бла́гости покрыва́ющей страну́ на́шу правосла́вную, благода́рственная пе́ния прино́сим Ти́, Богоро́дице, о явле́нии чу́дныя Твоея́ ико́ны. Ты́ же, я́ко Всеми́лостивая, все́х притека́ющих к Тебе́ Помо́щнице, заступа́й на́с во все́х ско́рбех и ну́ждах, беда́х и напа́стех, да зове́м Ти́: О, Всепе́тая Ма́ти, ро́ждшая все́х святы́х Святе́йшее Сло́во. О тебе вопиющих.';
         // document.querySelector('.translated').textContent = makeFirstLetter(translate(translateText2));
         for( let i = 6126; i<= 6145 ; i++) {
@@ -179,7 +179,7 @@ function translateWord(word) {
         //     if (word[i].charCodeAt() !== 769) wordX+= word[i];
         // }
         // return wordX
-        return word 
+        return checkSpelling(word)
     }
 }
 
@@ -198,15 +198,19 @@ function translate(text) {
         } 
         else 
         {
-            while (textLow[j]!==' ' && textLow[j]!==',' && textLow[j]!=='.' && textLow[j]!==':' && textLow[j]!=='!' && textLow[j]!=='?' && textLow[j]!==';' && textLow[j]!=='—' && textLow[j]!=='(' && textLow[j]!==')' && j < textLow.length) {
+            while (textLow[j].charCodeAt() !== 10 && textLow[j]!==' ' && textLow[j]!==',' && textLow[j]!=='.' && textLow[j]!==':' && textLow[j]!=='!' && textLow[j]!=='?' && textLow[j]!==';' && textLow[j]!=='—' && textLow[j]!=='(' && textLow[j]!==')' && textLow[j]!=='»' && textLow[j]!=='«' && j < textLow.length) {
                 word+= textLow[j];            
                 j++;
             };                            
             i = j;
-            if (word) result+= translateWord(word);
+            if (word) {
+                // console.log('!',word,'!',' ', translateWord(word));
+                result+= translateWord(word);
+            }
             if (j < textLow.length) result+= textLow[i];
         }        
     }    
+    // console.log(text,' ', result)
     return result;
 }
 
@@ -248,3 +252,15 @@ function exception(array) {
     }
 }
 
+function checkSpelling(word) {
+    
+    let newWord = '';
+    if (word) {
+        for(let i = 0; i<word.length; i++) {        
+            if (word[i].charCodeAt()!== 769) newWord+=word[i];        
+        }
+        console.log(newWord);
+    }    
+    return newWord
+}
+checkSpelling();
