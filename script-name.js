@@ -128,7 +128,7 @@ try {
         console.log(sortByRus(vocabulary));
         // const translateText2 = 'Взбра́нной от все́х родо́в Засту́пнице ро́да христиа́нскаго, покро́вом Своея́ бла́гости покрыва́ющей страну́ на́шу правосла́вную, благода́рственная пе́ния прино́сим Ти́, Богоро́дице, о явле́нии чу́дныя Твоея́ ико́ны. Ты́ же, я́ко Всеми́лостивая, все́х притека́ющих к Тебе́ Помо́щнице, заступа́й на́с во все́х ско́рбех и ну́ждах, беда́х и напа́стех, да зове́м Ти́: О, Всепе́тая Ма́ти, ро́ждшая все́х святы́х Святе́йшее Сло́во. О тебе вопиющих.';
         // document.querySelector('.translated').textContent = makeFirstLetter(translate(translateText2));
-        for( let i = 6145; i<= 6307 ; i++) {
+        for( let i = 6307; i<= 6846 ; i++) {
             const li = document.createElement("li");
             const textRus = document.createElement("p");
             const textCs = document.createElement("span");
